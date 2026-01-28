@@ -22,21 +22,21 @@
 ========================= */
 body {
     font-family: 'Open Sans', sans-serif;
-    line-height: 1.7;
     color: #2c3e50;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     background-attachment: fixed;
     padding: 20px 10px;
+    line-height: 1.7;
     overflow-x: hidden;
 }
 
 .journal-content {
     max-width: 900px;
     margin: 0 auto;
-    background: #fff;
+    background: #ffffff;
     padding: 50px 40px;
     border-radius: 6px;
-    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     border-left: 6px solid #8B0000;
 }
 
@@ -86,8 +86,8 @@ h3 {
 
 p {
     font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 25px;
+    line-height: 1.75;
+    margin-bottom: 24px;
     text-align: justify;
 }
 
@@ -97,7 +97,7 @@ p {
 }
 
 /* =========================
-   IMAGE SYSTEM (CORE)
+   IMAGE SYSTEM
 ========================= */
 .image-container {
     margin: 45px 0;
@@ -112,9 +112,9 @@ p {
     height: auto;
     border-radius: 8px;
     border: 1px solid #eee;
-    box-shadow: 0 8px 25px rgba(0,0,0,.12);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
     cursor: pointer;
-    transition: transform .2s ease;
+    transition: transform 0.2s ease;
 }
 
 .image-container img:hover {
@@ -126,19 +126,21 @@ p {
     font-family: 'Lora', serif;
     font-size: 1rem;
     color: #555;
-    font-style: italic;
-    margin-top: 12px;
     line-height: 1.5;
+    margin-top: 12px;
+}
+
+.photo-caption {
+    font-style: italic;
 }
 
 .doctor-caption {
-    font-style: normal;
     font-weight: 500;
     color: #2c3e50;
 }
 
 /* =========================
-   IMAGE SIZES
+   IMAGE MODIFIERS
 ========================= */
 .horizontal-photo {
     max-width: 90%;
@@ -168,7 +170,7 @@ p {
     padding: 10px;
     border-radius: 8px;
     border: 1px solid #eee;
-    box-shadow: 0 6px 20px rgba(0,0,0,.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
 }
 
 .triple-images {
@@ -220,6 +222,7 @@ p {
     font-family: 'Lora', serif;
     font-size: 1.3rem;
     font-style: italic;
+    line-height: 1.7;
     background: #f8f9fa;
     border-left: 6px solid #8B0000;
     padding: 35px;
@@ -229,7 +232,7 @@ p {
 .poem {
     font-family: 'Lora', serif;
     font-size: 1.3rem;
-    line-height: 1.9;
+    line-height: 1.8;
     background: #fff5e6;
     padding: 40px;
     border-radius: 8px;
@@ -250,7 +253,7 @@ p {
     margin-top: 50px;
     padding: 40px;
     text-align: center;
-    font-size: .95rem;
+    font-size: 0.95rem;
     color: #7f8c8d;
     border-top: 1px solid #eee;
 }
@@ -262,7 +265,7 @@ p {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.9);
+    background: rgba(0,0,0,0.9);
     z-index: 1000;
     justify-content: center;
     align-items: center;
@@ -288,16 +291,39 @@ p {
 }
 
 /* =========================
-   MOBILE
+   MOBILE (COMFORT READING)
 ========================= */
 @media (max-width: 768px) {
+
+    body {
+        padding: 10px 4px;
+    }
+
     .journal-content {
-        padding: 30px 20px;
+        padding: 24px 14px;
     }
 
     h1 { font-size: 2.2rem; }
     h2 { font-size: 1.7rem; }
     h3 { font-size: 1.4rem; }
+
+    p {
+        font-size: 1.05rem;
+        line-height: 1.55;
+        margin-bottom: 20px;
+    }
+
+    .quote {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        padding: 22px 18px;
+    }
+
+    .poem {
+        font-size: 1.15rem;
+        line-height: 1.65;
+        padding: 22px 18px;
+    }
 
     .pair-images,
     .triple-images,
@@ -315,6 +341,7 @@ p {
         max-height: 400px;
     }
 }
+
 
     </style>
 </head>
