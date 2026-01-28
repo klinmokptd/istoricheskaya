@@ -25,134 +25,233 @@
             margin: 0 auto;
         }
         
-        .slide {
+        .journal-content {
             background: white;
-            margin: 20px auto;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            padding: 50px 40px;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: relative;
+            border-left: 6px solid #8B0000;
             max-width: 900px;
-            width: 100%;
+            margin: 0 auto;
         }
         
-        .slide-title {
+        h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
+            font-size: 3.2rem;
             font-weight: 700;
             color: #2c3e50;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             line-height: 1.2;
-            text-align: center;
-            border-bottom: 3px solid #8B0000;
-            padding-bottom: 15px;
+            letter-spacing: -0.5px;
+            position: relative;
+            padding-bottom: 20px;
         }
         
-        .slide-subtitle {
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, #8B0000, #c44569);
+            border-radius: 2px;
+        }
+        
+        h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 2.4rem;
             font-weight: 600;
             color: #2c3e50;
-            margin: 20px 0 15px;
+            margin: 35px 0 20px;
             line-height: 1.3;
         }
         
-        .slide-text {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            margin-bottom: 20px;
+        h3 {
+            font-family: 'Lora', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #34495e;
+            margin: 25px 0 15px;
+            font-style: italic;
+        }
+        
+        p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
             color: #2c3e50;
             text-align: justify;
+            hyphens: auto;
+            width: 100%;
+        }
+        
+        .section {
+            margin: 40px 0;
+            padding: 30px 0;
+            border-top: 1px solid #eaeaea;
         }
         
         .image-container {
-            margin: 25px 0;
+            margin: 40px 0;
             text-align: center;
+            width: 100%;
         }
         
-        .single-image {
+        .image-container img {
             max-width: 100%;
             height: auto;
-            border-radius: 6px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            margin-bottom: 15px;
+            border: 1px solid #eee;
             display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        .image-grid {
+        /* Стиль для слайда с главными врачами */
+        .doctors-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 25px 0;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+            width: 100%;
         }
         
-        .image-item {
+        .doctor-item {
             text-align: center;
         }
         
-        .image-item img {
+        .doctor-item img {
             width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            margin-bottom: 15px;
+            border: 1px solid #eee;
+        }
+        
+        .doctor-caption {
+            font-family: 'Lora', serif;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+        
+        /* Стиль для парных изображений */
+        .pair-images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+            width: 100%;
+        }
+        
+        .pair-images img {
+            max-width: calc(50% - 15px);
             height: auto;
             border-radius: 6px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            margin-bottom: 10px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
         }
         
-        .image-caption {
-            font-family: 'Lora', serif;
-            font-size: 1rem;
-            color: #2c3e50;
-            font-style: italic;
-            margin-top: 5px;
-        }
-        
-        .centered-images {
+        /* Стиль для трех изображений в ряд */
+        .triple-images {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
-            margin: 20px 0;
+            margin: 40px 0;
+            width: 100%;
         }
         
-        .centered-images img {
-            max-width: 300px;
-            width: 100%;
+        .triple-images img {
+            max-width: calc(33.333% - 14px);
             height: auto;
             border-radius: 6px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+        }
+        
+        .image-caption {
+            font-family: 'Lora', serif;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            font-weight: 500;
+            margin-top: 10px;
+            text-align: center;
+            font-style: italic;
         }
         
         .quote {
             font-family: 'Lora', serif;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-style: italic;
-            line-height: 1.7;
+            line-height: 1.8;
             color: #2c3e50;
-            padding: 20px;
-            margin: 20px 0;
+            padding: 35px 40px;
+            margin: 40px 0;
             background: linear-gradient(135deg, #f8f9fa 0%, #edf2f7 100%);
-            border-radius: 6px;
-            border-left: 4px solid #8B0000;
+            border-radius: 8px;
+            border-left: 6px solid #8B0000;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .quote::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            color: #8B0000;
+            opacity: 0.2;
+            position: absolute;
+            top: 10px;
+            left: 20px;
         }
         
         .poem {
             font-family: 'Lora', serif;
-            font-size: 1.2rem;
-            line-height: 1.8;
+            font-size: 1.4rem;
+            line-height: 1.9;
             color: #2c3e50;
-            padding: 25px;
-            margin: 25px 0;
+            padding: 50px;
+            margin: 50px 0;
             text-align: center;
             background: linear-gradient(135deg, #fffaf0 0%, #fff5e6 100%);
-            border-radius: 6px;
+            border-radius: 8px;
             border: 1px solid #ffe8cc;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .poem::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: linear-gradient(to bottom, #8B0000, #c44569);
         }
         
         .poem-author {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: #8B0000;
-            margin-top: 15px;
+            margin-top: 30px;
             font-style: italic;
             text-align: right;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(139, 0, 0, 0.1) 0%, rgba(139, 0, 0, 0.05) 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 500;
         }
         
         .year {
@@ -162,53 +261,111 @@
         
         .footer {
             text-align: center;
-            padding: 30px;
-            margin-top: 30px;
+            padding: 40px;
+            margin-top: 40px;
             color: #7f8c8d;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             border-top: 1px solid #eaeaea;
             background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
         }
         
         /* Мобильная адаптация */
         @media (max-width: 768px) {
-            .slide {
-                padding: 20px 15px;
-                margin: 15px auto;
+            body {
+                padding: 10px 5px;
             }
             
-            .slide-title {
+            .journal-content {
+                padding: 30px 20px;
+                border-left-width: 4px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+                padding-bottom: 15px;
+            }
+            
+            h2 {
                 font-size: 1.8rem;
-                padding-bottom: 12px;
             }
             
-            .slide-subtitle {
-                font-size: 1.5rem;
+            h3 {
+                font-size: 1.4rem;
             }
             
-            .slide-text {
-                font-size: 1rem;
-                line-height: 1.6;
+            p {
+                font-size: 1.05rem;
+                line-height: 1.7;
+                text-align: left;
+                padding: 0 5px;
             }
             
-            .image-grid {
+            .doctors-grid {
                 grid-template-columns: 1fr;
-                gap: 15px;
+                gap: 25px;
             }
             
-            .centered-images {
+            .doctor-item img {
+                height: 250px;
+            }
+            
+            .pair-images {
                 flex-direction: column;
-                align-items: center;
-                gap: 15px;
+                gap: 25px;
             }
             
-            .centered-images img {
+            .pair-images img {
+                max-width: 100%;
+            }
+            
+            .triple-images {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .triple-images img {
                 max-width: 100%;
             }
             
             .quote {
-                padding: 15px;
+                padding: 25px;
+                font-size: 1.1rem;
+                margin: 30px 0;
+            }
+            
+            .poem {
+                padding: 30px;
+                font-size: 1.2rem;
+                margin: 30px 0;
+            }
+            
+            .quote::before {
+                font-size: 4rem;
+                top: 5px;
+                left: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .journal-content {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            p {
                 font-size: 1rem;
+                padding: 0;
+            }
+            
+            .doctor-item img {
+                height: 200px;
             }
             
             .poem {
@@ -216,312 +373,335 @@
                 font-size: 1.1rem;
             }
         }
-        
-        @media (max-width: 480px) {
-            .slide-title {
-                font-size: 1.5rem;
-            }
-            
-            .slide-subtitle {
-                font-size: 1.3rem;
-            }
-            
-            .slide-text {
-                font-size: 0.95rem;
-            }
-            
-            .poem {
-                font-size: 1rem;
-                padding: 15px;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- Слайд 1: Заголовок -->
-    <div class="slide">
-        <div class="slide-title">Филиал «Клинский» ГБУЗ МО «МОКПТД»</div>
-        <div class="slide-subtitle">Историческая справка</div>
-        <div class="slide-text">ГБУЗ МО «Московский областной клинический противотуберкулезный диспансер»</div>
-        <div class="slide-text">Филиал «Клинский»</div>
-    </div>
-
-    <!-- Слайд 2: Специализированная помощь -->
-    <div class="slide">
-        <div class="slide-subtitle">Специализированная помощь больным туберкулезом</div>
-        <div class="slide-text">Специализированная помощь больным туберкулезом в Клинском районе была впервые организована в <span class="year">1924 году</span>, когда в Клину и Высоковске были открыты первые туберкулезные кабинеты. В <span class="year">1925 году</span> в городе Высоковск Клинского уезда был открыт свой противотуберкулезный диспансер со стационарным отделением на 15 койко-мест. Его более 20 лет возглавлял энтузиаст Перльштейн Евсей Ефремович. Самостоятельная противотуберкулезная служба в Высоковске просуществовала до <span class="year">1970 года</span>, после чего она объединилась с Клинским противотуберкулезным диспансером.</div>
-        <div class="slide-text">В <span class="year">1925 году</span> для строительства диспансера в Клину было выбрано место на территории усадьбы Демьяново, где ранее располагался разрушенный садовый павильон. В <span class="year">1926 году</span> на средства местного населения был куплен материал (лес) и возведено двухэтажное деревянное здание.</div>
-        <div class="image-container">
-            <img src="image1.png" alt="Специализированная помощь больным туберкулезом" class="single-image">
-        </div>
-    </div>
-
-    <!-- Слайд 3: Земельная запись -->
-    <div class="slide">
-        <div class="slide-text">Деревянное здание диспансера. Предположительно, фото первых лет после постройки, так как территориальные единицы (уезды) в <span class="year">1929 году</span> в СССР были преобразованы в районы, а здание было построено в <span class="year">1926 году</span>.</div>
-        <div class="slide-text">Копия «Земельной записи» на право пользования диспансером землей, находящейся в Московской губернии, Клинском уезде и Давыдковской волости, датированная <span class="year">24 февраля 1928 года</span>. Было выделено 8,44 десятины земли (9,2 га) на территории усадьбы Демьяново.</div>
-        <div class="centered-images">
-            <img src="image2.png" alt="Земельная запись">
-            <img src="image3.png" alt="Земельная запись 2">
-        </div>
-    </div>
-
-    <!-- Слайд 4: Усадьба Демьяново -->
-    <div class="slide">
-        <div class="slide-subtitle">Усадьба Демьяново</div>
-        <div class="slide-text">Усадьба Демьяново - одно из старейших и красивейших мест Клинского края. Здесь бывали Державин, Вяземский, гостил В. Л. Пушкин (дядя А. С. Пушкина) с племянником.</div>
-        <div class="slide-text">Посещали усадьбу и царственные особы: Екатерина II с внуком Александром, императрица Мария Федоровна. В <span class="year">1883 году</span> усадьбу Демьяново приобрел социолог и философ Владимир Танеев.</div>
-        <div class="image-container">
-            <img src="image4.png" alt="Усадьба Демьяново" class="single-image">
-        </div>
-    </div>
-
-    <!-- Слайд 5: Картина Васнецова -->
-    <div class="slide">
-        <div class="slide-subtitle">Картина Аполлинария Васнецова</div>
-        <div class="slide-text">Картина Аполлинария Васнецова "Пруд. Демьяново близ Клина" была приобретена Третьяковской галереей у семьи художника в <span class="year">1936 году</span>. На ней изображен пруд, который находился на балансе ГБУЗ МО Клинский ПТД до <span class="year">2015 года</span>.</div>
-        <div class="image-container">
-            <img src="image5.png" alt="Картина Аполлинария Васнецова" class="single-image">
-        </div>
-    </div>
-
-    <!-- Слайд 6: Пустой с изображениями 6 и 7 -->
-    <div class="slide">
-        <div class="centered-images">
-            <img src="image6.png" alt="Этапы развития">
-            <img src="image7.png" alt="Историческая справка">
-        </div>
-    </div>
-
-    <!-- Слайд 7: Пустой -->
-    <div class="slide">
-        <!-- Пустой слайд -->
-    </div>
-
-    <!-- Слайд 8: Руководители диспансера -->
-    <div class="slide">
-        <div class="slide-subtitle">Руководители диспансера</div>
-        <div class="image-grid">
-            <div class="image-item">
-                <img src="image8.png" alt="Пельшнер">
-                <div class="image-caption">Пельшнер</div>
-            </div>
-            <div class="image-item">
-                <img src="image9.png" alt="Никонов">
-                <div class="image-caption">Никонов</div>
-            </div>
-            <div class="image-item">
-                <img src="image10.png" alt="Цебулевич">
-                <div class="image-caption">Цебулевич</div>
-            </div>
-            <div class="image-item">
-                <img src="image12.png" alt="Поташников">
-                <div class="image-caption">Поташников</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Слайд 9: Главный врач Цебулевич -->
-    <div class="slide">
-        <div class="slide-subtitle">Главный врач Цебулевич</div>
-        <div class="slide-text">Главный врач с <span class="year">1939 г. по 1955 г.</span></div>
-        <div class="slide-text">Главный врач Цибулевич Э.Ф. 4-я слева (в платке).</div>
-        <div class="image-container">
-            <img src="image12.png" alt="Главный врач Цебулевич" class="single-image">
-        </div>
-    </div>
-
-    <!-- Слайд 10: Урсов Игорь Григорьевич -->
-    <div class="slide">
-        <div class="slide-subtitle">Урсов Игорь Григорьевич</div>
-        <div class="slide-text">Главный врач Клинского противотуберкулезного диспансера с <span class="year">1956 г. по 1968 г.</span></div>
-        <div class="image-container">
-            <img src="image13.png" alt="Урсов Игорь Григорьевич" class="single-image">
-        </div>
-    </div>
-
-    <!-- Слайд 11: Рентгенологический метод -->
-    <div class="slide">
-        <div class="slide-subtitle">Рентгенологический метод</div>
-        <div class="quote">"С развитием рентгенологического метода выявления туберкулёза появилась возможность проводить выборочные профилактические осмотры (учителей, педиатров, работников детских садов и др.)" - вспоминает И.Г. Урсов (из книги изданной к его 75-летию учениками и последователями).</div>
-        <div class="centered-images">
-            <img src="image14.png" alt="Рентгенологическое оборудование">
-            <img src="image15.png" alt="Рентген кабинет">
-            <img src="image16.png" alt="Рентген аппарат">
-        </div>
-    </div>
-
-    <!-- Слайд 12: Основная заслуга -->
-    <div class="slide">
-        <div class="slide-subtitle">Основная заслуга деятельности в Клину</div>
-        <div class="slide-text">Основная заслуга его деятельности в Клину заключалась в том, что "во главу угла" работы была поставлена профилактика туберкулёза.</div>
-        <div class="centered-images">
-            <img src="image17.png" alt="Профилактическая работа">
-            <img src="image18.png" alt="Мероприятия по профилактике">
-        </div>
-    </div>
-
-    <!-- Слайд 13: Урсов на обходе -->
-    <div class="slide">
-        <div class="slide-subtitle">Урсов И.Г. на обходе</div>
-        <div class="image-container">
-            <img src="image19.png" alt="Урсов на обходе" class="single-image">
-        </div>
-    </div>
-
-    <!-- Слайд 14: Игорь Урсов с коллегами -->
-    <div class="slide">
-        <div class="slide-subtitle">Игорь Урсов с коллегами</div>
-        <div class="slide-text">И.Г. Урсов с коллегами: справа на фотографии сидит ветеран труда, отличник здравоохранения, к.м.н. Елизавета Георгиевна Белослюд, старейший член общества фтизиатров, старейший фтизиатр диспансера, энтузиаст красно-крестной работы; слева сидит участковый фтизиатр Валентина Ивановна Зайцева; в центре сидит заместитель главного врача, Олег Гаврилович Леонов; слева от него — участковый фтизиатр Игорь Степанович Шиндер.</div>
-        <div class="image-container">
-            <img src="image20.png" alt="Игорь Урсов с коллегами" class="single-image">
-        </div>
-    </div>
-
-    <!-- Слайд 15: Сотрудники 1956 и 1957 -->
-    <div class="slide">
-        <div class="slide-subtitle">Сотрудники 1956 и 1957 годов</div>
-        <div class="slide-text">Сотрудники, <span class="year">1956 г.</span></div>
-        <div class="slide-text">Сотрудники и пациенты, <span class="year">1957 г.</span></div>
-        <div class="centered-images">
-            <img src="image21.png" alt="Сотрудники 1956">
-            <img src="image22.png" alt="Сотрудники 1957">
-        </div>
-    </div>
-
-    <!-- Слайд 16: Здание стационара -->
-    <div class="slide">
-        <div class="slide-subtitle">Здание стационара</div>
-        <div class="slide-text">Здание стационара с летней верандой (пристроена в <span class="year">1958 году</span>).</div>
-        <div class="centered-images">
-            <img src="image23.png" alt="Здание стационара">
-            <img src="image24.png" alt="Стационар с верандой">
-        </div>
-    </div>
-
-    <!-- Слайд 17: Леонов Олег Гаврилович -->
-    <div class="slide">
-        <div class="slide-subtitle">Леонов Олег Гаврилович</div>
-        <div class="slide-text">С <span class="year">1968 года</span> главным врачом Клинского противотуберкулёзного диспансера был назначен Леонов Олег Гаврилович.</div>
-        <div class="centered-images">
-            <img src="image25.png" alt="Леонов Олег Гаврилович">
-            <img src="image26.png" alt="Леонов О.Г.">
-        </div>
-    </div>
-
-    <!-- Слайд 18: Без названия -->
-    <div class="slide">
-        <div class="image-container">
-            <img src="image27.png" alt="Без названия" class="single-image">
-        </div>
-    </div>
-
-    <!-- Слайд 19: Агит плакат 1982 -->
-    <div class="slide">
-        <div class="slide-subtitle">Агит плакат 1982</div>
-        <div class="image-container">
-            <img src="image28.png" alt="Агит плакат 1982" class="single-image">
-        </div>
-    </div>
-
-    <!-- Слайд 20: Беседа с больными и субботник -->
-    <div class="slide">
-        <div class="slide-subtitle">Беседа с больными и субботник</div>
-        <div class="centered-images">
-            <img src="image29.png" alt="Беседа с больными">
-            <img src="image30.png" alt="Субботник">
-        </div>
-        <div class="image-caption">Беседа с больными стационара, <span class="year">1969 г</span></div>
-        <div class="image-caption">Субботник, <span class="year">1969 г</span></div>
-    </div>
-
-    <!-- Слайд 21: Памятка фтизиатра -->
-    <div class="slide">
-        <div class="slide-subtitle">Памятка фтизиатра</div>
-        <div class="slide-text">Из памятки фтизиатра по работе с общей лечебной сетью, <span class="year">1969 г.</span>.</div>
-        <div class="image-container">
-            <img src="image31.png" alt="Памятка фтизиатра" class="single-image">
-        </div>
-    </div>
-
-    <!-- Слайд 22: Лукаш Татьяна Ивановна -->
-    <div class="slide">
-        <div class="slide-subtitle">Лукаш Татьяна Ивановна</div>
-        <div class="slide-text">Татьяна Ивановна Лукаш - заслуженный врач Московской области, стала руководителем диспансера после многолетней работы в должности заведующей диспансерным отделением.</div>
-        <div class="image-container">
-            <img src="image32.png" alt="Лукаш Татьяна Ивановна" class="single-image">
-        </div>
-    </div>
-
-    <!-- Слайд 23: Про Пушкина и Гоголя -->
-    <div class="slide">
-        <div class="slide-subtitle">Татьяна Ивановна Лукаш - потомок Пушкина и Гоголя</div>
-        <div class="slide-text">При всем вышесказанном, Татьяна Ивановна была достаточно скромным человеком. Будучи прапраправнучкой А. С. Пушкина и праправнучкой Анны Васильевны Гоголь (сестра писателя Н. В. Гоголя), Татьяна Ивановна никогда не кичилась своим происхождением.</div>
-        <div class="slide-text">Татьяна Ивановна Лукаш родилась и провела свое детство в семейной усадьбе Анны Васильевны Гоголь в Полтаве. В Клин Татьяна Ивановна переехала вместе с мужем, в связи с его распределением по военной службе. Всю жизнь она бережно хранила и систематизировала знания о своих предках, полученные ею по наследству, и охотно делилась ими, в первую очередь, с историками-пушкиноведами.</div>
-        <div class="image-container">
-            <img src="image33.png" alt="Лукаш Т.И. с коллегами" class="single-image">
-        </div>
-    </div>
-
-    <!-- Слайд 24: Карпичев Олег Гаврилович -->
-    <div class="slide">
-        <div class="slide-subtitle">Карпичев Борис Андреевич</div>
-        <div class="slide-text">Врач-рентгенолог, заведующий рентгеновским кабинетом, проработал в диспансере более 42 лет (с <span class="year">1980 по 2022 год</span>).</div>
-        <div class="image-container">
-            <img src="image34.png" alt="Карпичев Борис Андреевич" class="single-image">
-        </div>
-        <div class="centered-images">
-            <img src="image35.png" alt="Карпичев фото 2">
-            <img src="image36.png" alt="Карпичев фото 3">
-        </div>
-    </div>
-
-    <!-- Слайд 25 -->
-    <div class="slide">
-        <div class="image-container">
-            <img src="image37.png" alt="Изображение 37" class="single-image">
-        </div>
-    </div>
-
-    <!-- Слайд 26 -->
-    <div class="slide">
-        <div class="image-container">
-            <img src="image38.png" alt="Изображение 38" class="single-image">
-        </div>
-    </div>
-
-    <!-- Слайд 27 -->
-    <div class="slide">
-        <div class="image-container">
-            <img src="image39.png" alt="Изображение 39" class="single-image">
-        </div>
-    </div>
-
-    <!-- Слайд с поэмой -->
-    <div class="slide">
-        <div class="poem">
-            Сдвину горы, дуну ветром,<br>
-            Вскрою льды сердечным жаром,<br>
-            Озарю всю тьму я светом<br>
-            И сгорю в огне пожара!<br><br>
+    <div class="journal-content">
+        <!-- Слайд 1: Заголовок -->
+        <h1>Филиал «Клинский» ГБУЗ МО «МОКПТД»</h1>
+        <h2>Историческая справка</h2>
+        <h3>ГБУЗ МО «Московский областной клинический противотуберкулезный диспансер»</h3>
+        <h3>Филиал «Клинский»</h3>
+        
+        <!-- Слайд 2: Специализированная помощь -->
+        <div class="section">
+            <p>&nbsp;</p>
+            <p>Специализированная помощь больным туберкулезом в Клинском районе была впервые организована в <span class="year">1924 году</span>, когда в Клину и&nbsp; Высоковске были открыты первые туберкулезные кабинеты. В <span class="year">1925 году</span> в городе Высоковск Клинского уезда был открыт свой противотуберкулезный диспансер со стационарным отделением на 15 койко-мест. Его более 20 лет возглавлял энтузиаст Перльштейн Евсей Ефремович. Самостоятельная противотуберкулезная служба в Высоковске просуществовала до <span class="year">1970 года</span>, после чего она объединилась с Клинским противотуберкулезным диспансером.</p>
+            <p>В <span class="year">1925 году</span> для строительства диспансера в Клину было выбрано место на территории усадьбы Демьяново, где ранее располагался разрушенный садовый павильон. В <span class="year">1926 году</span> на средства местного населения был куплен материал (лес) и возведено двухэтажное деревянное здание.</p>
             
-            Мир объять объятьем страстным<br>
-            И уйти, чтоб лик был светел,<br>
-            Лишь сознав, что не напрасно<br>
-            Превратишься в дым и пепел.<br><br>
-            
-            <div class="poem-author">И.Г. Урсов</div>
+            <div class="image-container">
+                <img src="image1.png" alt="Специализированная помощь больным туберкулезом">
+            </div>
         </div>
-    </div>
-
-    <!-- Заключительный слайд -->
-    <div class="slide">
-        <div class="slide-text">Спасибо за внимание, заведующий филиалом "Клинский" Лукаш И.А.</div>
-        <div class="slide-text">Надеюсь, эти примеры помогут современным и будущим сотрудникам диспансера переосмыслить свое отношение к работе, сформировать новые убеждения и сделать лучше себя и мир вокруг себя.</div>
+        
+        <!-- Слайд 3: Земельная запись -->
+        <div class="section">
+            <p>Деревянное здание диспансера. Предположительно, фото первых лет после постройки, так как территориальные единицы (уезды) в <span class="year">1929 году</span> в СССР были преобразованы в районы, а здание было построено в <span class="year">1926 году</span>.</p>
+            <p>Копия «Земельной записи» на право пользования диспансером землей, находящейся в Московской губернии, Клинском уезде и Давыдковской волости, датированная <span class="year">24 февраля 1928 года</span>. Было выделено 8,44 десятины земли (9,2 га) на территории усадьбы Демьяново.</p>
+            
+            <div class="pair-images">
+                <img src="image2.png" alt="Копия земельной записи">
+                <img src="image3.png" alt="Земельная запись">
+            </div>
+        </div>
+        
+        <!-- Слайд 4: Усадьба Демьяново -->
+        <div class="section">
+            <p>Усадьба Демьяново - одно из старейших и красивейших мест Клинского края. Здесь бывали Державин, Вяземский,&nbsp; гостил В. Л. Пушкин (дядя А. С. Пушкина) с племянником.</p>
+            <p>Посещали усадьбу и царственные особы: Екатерина II с внуком Александром, императрица Мария Федоровна. В <span class="year">1883 году</span> усадьбу&nbsp;Демьяново приобрел социолог и философ Владимир Танеев.</p>
+            
+            <div class="image-container">
+                <img src="image4.png" alt="Усадьба Демьяново">
+            </div>
+            
+            <p>Частыми гостями Танеева были П. И. Чайковский, живший неподалеку, родной брат Танеева - композитор Сергей Иванович Танеев - любимый ученик П. И. Чайковского.</p>
+            <p>Часть зданий Танеев оборудовал под дачи и сдавал их представителям научной и творческой интеллигенции.</p>
+            <p>Усадьбу посещали Салтыков-Щедрин, Ермолова, Скрябин, Метнер, сестры Гнесины, Андрей Белый.&nbsp;&nbsp;</p>
+            <p>На дачах, оборудованных в усадьбе, подолгу жили профессора Московского Университета - философы, химики, зоологи, математики, а также жил и работал Тимирязев.</p>
+            <p>В усадьбе бывал великий русский живописец В. М. Васнецов, а его родной брат, художник А. М. Васнецов, посещал усадьбу с <span class="year">1903 по 1917 год</span> и создал цикл пейзажей (более 50 работ), посвященных усадьбе Демьяново Клинского уезда.</p>
+        </div>
+        
+        <!-- Слайд 5: Картина Васнецова -->
+        <div class="section">
+            <p>Картина Аполлинария Васнецова "Пруд. Демьяново близ Клина" была приобретена Третьяковской галереей у семьи художника в <span class="year">1936 году</span>. На ней изображен пруд, который находился на балансе ГБУЗ МО Клинский ПТД до <span class="year">2015 года</span>.</p>
+            
+            <div class="image-container">
+                <img src="image5.png" alt="Картина Аполлинария Васнецова">
+            </div>
+        </div>
+        
+        <!-- Слайд 6: Этапы развития -->
+        <div class="section">
+            <p>&nbsp;Этапы развития противотуберкулезной службы в Клинском районе.</p>
+            <p>Первый прием больных в Клину состоялся в&nbsp;субботу <span class="year">28.07.1928 г.</span></p>
+            <p>В <span class="year">1929 году</span> в Клинском диспансере организован детский кабинет.</p>
+            <p>C <span class="year">1935 года</span> стала оказываться систематическая помощь больным костно-суставным туберкулезом.</p>
+            <p>В <span class="year">1938 году</span> открыт рентгеновский кабинет, в котором работал рентгенолог&nbsp; Варен Фридрих Петрович.</p>
+            <p>В октябре <span class="year">1939 года</span> стала функционировать клиническая&nbsp; лаборатория и вступил в строй стационар на 15 коек (ранее работал профилакторий).</p>
+            
+            <div class="pair-images">
+                <img src="image6.png" alt="Этапы развития">
+                <img src="image7.png" alt="Историческая справка">
+            </div>
+        </div>
+        
+        <!-- Слайд 7: Пустой -->
+        <div class="section">
+            <!-- Пустой слайд -->
+        </div>
+        
+        <!-- Слайд 8: Руководители диспансера -->
+        <div class="section">
+            <h2>Руководители диспансера</h2>
+            
+            <div class="doctors-grid">
+                <div class="doctor-item">
+                    <img src="image8.png" alt="Пельшнер">
+                    <div class="doctor-caption">Пельшнер</div>
+                </div>
+                
+                <div class="doctor-item">
+                    <img src="image9.png" alt="Никонов">
+                    <div class="doctor-caption">Никонов</div>
+                </div>
+                
+                <div class="doctor-item">
+                    <img src="image10.png" alt="Цебулевич">
+                    <div class="doctor-caption">Цебулевич</div>
+                </div>
+                
+                <div class="doctor-item">
+                    <img src="image12.png" alt="Поташников">
+                    <div class="doctor-caption">Поташников</div>
+                </div>
+            </div>
+            
+            <p>Первым главным врачом Клинского противотуберкулезного диспансера стал заведующий терапевтическим отделением больницы Никонов Н.М. после переподготовки в МОНИКИ, работал с <span class="year">1924 г. по 1939 г.</span></p>
+            <p>Врач-фтизиатр и общественник, энтузиаст. Руководил Высоковским противотуберкулезным диспансером с <span class="year">1925 г. по 1946 г.</span></p>
+        </div>
+        
+        <!-- Слайд 9: Главный врач Цебулевич -->
+        <div class="section">
+            <p>Цибулевич Элеонора Францевна</p>
+            <p>Главный врач с <span class="year">1939 г. по 1955 г.</span></p>
+            <p>Поташников Михаил Исаакович</p>
+            <p>Главный врач&nbsp; с <span class="year">1962 г. по 1963 г.</span></p>
+            <p>Главный врач Цибулевич Э.Ф. 4-я слева (в платке).</p>
+            
+            <div class="image-container">
+                <img src="image12.png" alt="Главный врач Цебулевич">
+            </div>
+        </div>
+        
+        <!-- Слайд 10: Урсов Игорь Григорьевич -->
+        <div class="section">
+            <p>Урсов Игорь Григорьевич</p>
+            <p>Главный врач Клинского противотуберкулезного диспансера с <span class="year">1956 г. по 1968 г.</span></p>
+            
+            <div class="image-container">
+                <img src="image13.png" alt="Урсов Игорь Григорьевич">
+            </div>
+            
+            <p>Фтизиатрия привлекла Игоря Григорьевича во время учебы&nbsp;на 4-м курсе 1-го Московского&nbsp; медицинского института. По окончанию института заведующий&nbsp; кафедрой фтизиатрии&nbsp; профессор Ф.В. Шебанов (одновременно директор Московского института туберкулеза на ул. Божедомка, ныне ул. Достоевского) пригласил&nbsp; И.Г. Урсова продолжить обучение в субординатуре на кафедре туберкулеза, но по семейным обстоятельствам Игорь Григорьевич отказался и после окончания института посвятил себя фтизиатрии, работая в Зубрилковском тубсанатории Пензенской области.&nbsp; В <span class="year">1955г.</span>, получив должность главного врача&nbsp; Клинского противотуберкулезного диспансера, Урсов И.Г. поступил в аспирантуру на кафедре туберкулеза 1-го МОЛГМИ и сочетал практическую работу с учёбой. В аспирантуре учился &nbsp;под руководством члена корреспондента АМН СССР, профессор Ф.В. Шебанова.&nbsp; В <span class="year">1964-м году</span> успешно защитил&nbsp;кандидатскую диссертацию на тему «Флюорографическое обследование на туберкулёз населения г. Клина и Клинского района Московской области». На ряду с научно -&nbsp;практической деятельностью Игорь Григорьевич активно занимался общественной работой, дважды избирался членом Исполкома Клинского Горсовета, также являлся депутатом Горсовета, председателем комиссии&nbsp;здравоохранения. В <span class="year">1962-м году</span> организовал Московское областное общество фтизиатров и до <span class="year">1968 г.</span> был его председателем.&nbsp; В <span class="year">1964 году</span> был избран председателем ревизионной комиссии и членом Президиума Всесоюзного общества фтизиатров. С <span class="year">1965 г.</span> в течение 20 лет был редактором журнала «Проблемы туберкулеза». Указом Президиума Верховного Совета РСФСР от <span class="year">14.04.1968</span> за большие успехи в деле охраны здоровья народа И.Г. Урсову было присвоено почётное звание «Заслуженный врач РСФСР».&nbsp; С <span class="year">1968 г. по 1980 г.</span> Игорь Григорьевич возглавлял Новосибирский научно-исследовательский институт туберкулёза. С <span class="year">1 августа 1980 г.</span> профессор Урсов И.Г. был переведён на должность ректора Новосибирского государственного медицинского института, возглавлял кафедру фтизиатрии факультета усовершенствования врачей, был выбран&nbsp;членом-корреспондентом АМН СССР.</p>
+        </div>
+        
+        <!-- Слайд 11: Рентгенологический метод -->
+        <div class="section">
+            <div class="quote">
+                "С развитием рентгенологического метода выявления туберкулёза появилась возможность проводить выборочные профилактические осмотры (учителей, педиатров, работников детских садов и др.)" - вспоминает И.Г. Урсов (из&nbsp; книги изданной к его 75-летию учениками и последователями). "Обследовали прежде всего тех, кто в случае заболевания туберкулёзом мог стать источником заражения большого количества людей. В конце 40-х годов появились первые флюорографы. Первое сплошное обследование населения на туберкулёз провёл Н.Л. Авгушевич в Павловском Посаде.&nbsp; Второе такое массовое обследование на туберкулёз было проведено Игорем Григорьевичем Усовым среди жителей Клина и&nbsp; Клинского района по предложению Московского института туберкулеза. Обследование предполагало не только флюорографию лицам старше восьми лет, но и туберкулинодиагностику всего населения, а также общий осмотр по особой программе для исключения внелегочных форм и проводилось в течение <span class="year">1957-58 гг.</span> Обследованию подверглось 90% населения района, благодаря чему туберкулёз выявлялся преимущественно у людей, кто редко подвергался групповым медосмотрам. Было выявлено много особенностей туберкулёза. Ранее считалось, что начиная с восемнадцатилетним возраста практически все население реагирует на туберкулиновые пробы. Оказалось, что только 50% жителей имеют положительные реакции на туберкулин. Ещё у 20-25% наблюдались слабые реакции, у остальных 15-20% населения отрицательные. Таким образом, было установлено, что не всё население инфицировано, что уменьшилась чувствительность населения к туберкулину. Это было связано с тем, что стало меньше массивных источников инфекции, так как&nbsp;туберкулез стали выявлять раньше, реже диагностировать открытые формы".
+            </div>
+            
+            <div class="triple-images">
+                <img src="image14.png" alt="Рентгенологическое оборудование">
+                <img src="image15.png" alt="Рентген кабинет">
+                <img src="image16.png" alt="Рентген аппарат">
+            </div>
+        </div>
+        
+        <!-- Слайд 12: Основная заслуга -->
+        <div class="section">
+            <p>"Один из флюорографов был смонтирован на автомобиле "Шкода". С этим автомобилем врачи объездили весь&nbsp;район, обследуя до 500 человек в день, затем был куплен крупнокадровый&nbsp;флюорограф, что позволило обследовать до 90% жителей."</p>
+            <p>Основная заслуга его деятельности в Клину заключалась в том, что "во главу угла" работы была поставлена профилактика туберкулёза. Медсоветом диспансера было решено заниматься практической работой в очагах три дня в неделю, а не 6 часов в неделю как было ранее. В результате проделанной работы были хорошо организованы мероприятия в очагах, отслеживались условия жизни каждого бактериовыделителя. Сохранился текст доклада врача-фтизиатра Леонова О.Г. «О противотуберкулезных мероприятиях&nbsp;среди рабочих текстильных фабрик Клинского района», составленный&nbsp;&nbsp;для&nbsp;совета&nbsp;облтубдиспансера&nbsp;в <span class="year">1969 году</span>. Доклад&nbsp;содержит результаты работы Клинского диспансера во время руководства Урсова И.Г.&nbsp;: . «За последние 6 лет на пред приятиях текстильной промышленности района было выполнено 4600 туберкулиновых проб, с охватом ими около 78% работающих, прививки БЦЖ проведены 298, что составляет около 6% от числа сделанных проб»; «В субботние дни в условиях пятидневной рабочей недели был организован прием фтизиатра (<span class="year">1968г.</span>), работал рентгеновский кабинет и лаборатория для того, чтобы больные и члены их семей могли пройти обследование в свободное от работы время»; «Исполком горсовета обязал руководителей предприятий повысить свою ответственность за проведение флюорографии на своих объектах, обеспечивать явку на обследование не менее 300 человек в день».</p>
+            <p>За 13 лет работы в Клину,&nbsp;Урсов И.Г. добился, что 500 больных туберкулезом получили квартиры, полностью был ликвидирован детский туберкулез, не стало запущенных форм болезни, самая низкая по стране &nbsp;заболеваемость фиксировалась в Клину. Именно&nbsp;поэтому&nbsp; врача Урсова заметили и предложили возглавить НИИ туберкулеза в Новосибирске.</p>
+            <p>Заместитель главного врача ГБУЗ МО МОКПТД по научной работе, д.м.н. Плеханова Мария Александровна училась у Игоря Григорьевича, он&nbsp; рассказывал ей, что именно им было предложено рассчитывать показатели на 100 тысяч населения, так как Клинский район долгие годы имел стабильную численность населения близкую к &nbsp;100 тысячам человек, с которой он и работал".</p>
+            
+            <div class="pair-images">
+                <img src="image17.png" alt="Профилактическая работа">
+                <img src="image18.png" alt="Мероприятия по профилактике">
+            </div>
+        </div>
+        
+        <!-- Слайд 13: Урсов на обходе -->
+        <div class="section">
+            <p>Урсов И.Г. на обходе Клин.</p>
+            <p>"Большого роста, большого сердца, большого ума человек!"- пишут о нем его ученики и последователи.</p>
+            
+            <div class="image-container">
+                <img src="image19.png" alt="Урсов на обходе">
+            </div>
+        </div>
+        
+        <!-- Слайд 14: Игорь Урсов с коллегами -->
+        <div class="section">
+            <p>И.Г. Урсов с коллегами: справа на фотографии сидит ветеран труда, отличник здравоохранения, к.м.н. Елизавета Георгиевна Белослюд, старейший член общества фтизиатров, старейший фтизиатр диспансера, энтузиаст красно-крестной работы; слева сидит участковый фтизиатр Валентина Ивановна Зайцева; в центре сидит заместитель главного врача, Олег Гаврилович Леонов; слева от него — участковый фтизиатр Игорь Степанович Шиндер.</p>
+            
+            <div class="image-container">
+                <img src="image20.png" alt="Игорь Урсов с коллегами">
+            </div>
+        </div>
+        
+        <!-- Слайд 15: Сотрудники 1956 и 1957 -->
+        <div class="section">
+            <p>Сотрудники, <span class="year">1956 г.</span></p>
+            <p>Сотрудники и пациенты, <span class="year">1957 г.</span></p>
+            
+            <div class="pair-images">
+                <img src="image21.png" alt="Сотрудники 1956">
+                <img src="image22.png" alt="Сотрудники и пациенты 1957">
+            </div>
+        </div>
+        
+        <!-- Слайд 16: Здание стационара -->
+        <div class="section">
+            <p>Здание стационара с летней верандой (пристроена в <span class="year">1958 году</span>).</p>
+            
+            <div class="pair-images">
+                <img src="image23.png" alt="Здание стационара">
+                <img src="image24.png" alt="Стационар с верандой">
+            </div>
+        </div>
+        
+        <!-- Слайд 17: Леонов Олег Гаврилович -->
+        <div class="section">
+            <p>С <span class="year">1968 года</span> главным врачом Клинского противотуберкулёзного диспансера был назначен Леонов Олег Гаврилович.</p>
+            
+            <div class="pair-images">
+                <img src="image25.png" alt="Леонов Олег Гаврилович">
+                <img src="image26.png" alt="Леонов О.Г.">
+            </div>
+            
+            <p>Леонов Олег Гаврилович</p>
+            <p>Главный врач Клинского противотуберкулёзного диспансера с <span class="year">1968 г. по 2006 г.</span> (38лет)</p>
+            <p>Агитплакат <span class="year">1982г.</span></p>
+        </div>
+        
+        <!-- Слайд 18: Без названия -->
+        <div class="section">
+            <div class="image-container">
+                <img src="image27.png" alt="Без названия">
+            </div>
+        </div>
+        
+        <!-- Слайд 19: Агит плакат 1982 -->
+        <div class="section">
+            <div class="image-container">
+                <img src="image28.png" alt="Агит плакат 1982">
+            </div>
+        </div>
+        
+        <!-- Слайд 20: Беседа с больными и субботник -->
+        <div class="section">
+            <p>Беседа с больными стационара, <span class="year">1969 г</span></p>
+            <p>Субботник, <span class="year">1969 г</span></p>
+            
+            <div class="pair-images">
+                <img src="image29.png" alt="Беседа с больными">
+                <img src="image30.png" alt="Субботник">
+            </div>
+        </div>
+        
+        <!-- Слайд 21: Памятка фтизиатра -->
+        <div class="section">
+            <p>Из памятки фтизиатра по работе с общей лечебной сетью, <span class="year">1969 г.</span>.</p>
+            
+            <div class="image-container">
+                <img src="image31.png" alt="Памятка фтизиатра">
+            </div>
+        </div>
+        
+        <!-- Слайд 22: Лукаш Татьяна Ивановна -->
+        <div class="section">
+            <p>Татьяна Ивановна Лукаш - заслуженный врач Московской области, стала руководителем диспансера&nbsp; после многолетней работы в должности заведующей диспансерным отделением.</p>
+            
+            <div class="image-container">
+                <img src="image32.png" alt="Лукаш Татьяна Ивановна">
+            </div>
+            
+            <p>Начало 90-х, на фоне&nbsp; диспансера.</p>
+            <p>Лукаш Татьяна Ивановна</p>
+        </div>
+        
+        <!-- Слайд 23: Про Пушкина и Гоголя -->
+        <div class="section">
+            <p>Выступление на открытии&nbsp;&nbsp;церемонии присвоения имени Александра Пушкина аэропорту Шереметьево. <span class="year">2019г.</span></p>
+            
+            <div class="image-container">
+                <img src="image33.png" alt="Лукаш Т.И. с коллегами">
+            </div>
+        </div>
+        
+        <!-- Слайд 24: Карпичев Олег Гаврилович -->
+        <div class="section">
+            <p>Карпичев Борис Андреевич</p>
+            <p>Заведующий рентгеновским кабинетом, врач-рентгенолог с <span class="year">1980 г.</span></p>
+            
+            <div class="image-container">
+                <img src="image34.png" alt="Карпичев Борис Андреевич">
+            </div>
+            
+            <div class="pair-images">
+                <img src="image35.png" alt="Карпичев фото 2">
+                <img src="image36.png" alt="Карпичев фото 3">
+            </div>
+        </div>
+        
+        <!-- Слайд 25 -->
+        <div class="section">
+            <div class="image-container">
+                <img src="image37.png" alt="Изображение 37">
+            </div>
+        </div>
+        
+        <!-- Слайд 26 -->
+        <div class="section">
+            <div class="image-container">
+                <img src="image38.png" alt="Изображение 38">
+            </div>
+        </div>
+        
+        <!-- Слайд 27 -->
+        <div class="section">
+            <div class="image-container">
+                <img src="image39.png" alt="Изображение 39">
+            </div>
+        </div>
+        
+        <!-- Поэма -->
+        <div class="section">
+            <div class="poem">
+                Сдвину горы, дуну ветром,<br>
+                Вскрою льды сердечным жаром,<br>
+                Озарю всю тьму я светом<br>
+                И сгорю в огне пожара!<br><br>
+                
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Мир объять объятьем страстным<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;И уйти, чтоб лик был светел,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Лишь сознав, что не напрасно<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Превратишься в дым и пепел.<br><br>
+                
+                <div class="poem-author">И.Г. Урсов</div>
+            </div>
+        </div>
+        
+        <!-- Заключительная часть -->
+        <div class="section">
+            <p>Спасибо за внимание,&nbsp;заведующий филиалом "Клинский" Лукаш И.А.</p>
+            <p>Надеюсь, эти примеры помогут современным и будущим сотрудникам диспансера переосмыслить свое отношение к работе, сформировать новые убеждения и сделать лучше себя и мир вокруг себя.</p>
+        </div>
     </div>
 
     <div class="footer">
-        <p>© Филиал «Клинский» ГБУЗ МО «МОКПТД»</p>
+        <p>© Филиал «Клинский» ГБУЗ МО «МОКПТД», 2024</p>
         <p>Историческая справка. Все права защищены.</p>
     </div>
 
