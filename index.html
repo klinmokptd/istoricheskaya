@@ -23,6 +23,7 @@
             padding: 20px 10px;
             max-width: 100%;
             margin: 0 auto;
+            overflow-x: hidden;
         }
         
         .journal-content {
@@ -34,6 +35,86 @@
             border-left: 6px solid #8B0000;
             max-width: 900px;
             margin: 0 auto;
+            width: 100%;
+        }
+        
+        /* Стили для всплывающего окна с фотографией */
+        .photo-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .photo-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .photo-modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+            position: relative;
+            animation: zoomIn 0.3s ease;
+        }
+        
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .photo-modal-img {
+            max-width: 100%;
+            max-height: 85vh;
+            width: auto;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .photo-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .photo-modal-close:hover {
+            opacity: 1;
+        }
+        
+        /* Стиль для кликабельных фотографий */
+        .clickable-photo {
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .clickable-photo:hover {
+            transform: scale(1.02);
         }
         
         h1 {
@@ -79,16 +160,6 @@
             font-style: italic;
         }
         
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 600;
-            color: #2c3e50;
-            margin: 40px 0 20px;
-            padding-top: 20px;
-            border-top: 1px solid #eaeaea;
-        }
-        
         .person-name {
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
@@ -121,6 +192,12 @@
             border: 1px solid #eee;
             display: block;
             margin: 0 auto;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .image-container img:hover {
+            transform: scale(1.02);
         }
         
         /* Особый стиль для горизонтально вытянутых фото (image3) */
@@ -181,6 +258,12 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.12);
             border: 1px solid #eee;
             margin: 0 auto;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .doctor-item img:hover {
+            transform: scale(1.02);
         }
         
         /* Парные изображения */
@@ -199,6 +282,12 @@
             border-radius: 6px;
             box-shadow: 0 6px 20px rgba(0,0,0,0.1);
             border: 1px solid #eee;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .pair-images img:hover {
+            transform: scale(1.02);
         }
         
         /* Три изображения в ряд */
@@ -217,6 +306,12 @@
             border-radius: 6px;
             box-shadow: 0 6px 20px rgba(0,0,0,0.1);
             border: 1px solid #eee;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .triple-images img:hover {
+            transform: scale(1.02);
         }
         
         /* Цитата */
@@ -316,10 +411,6 @@
                 margin: 40px 0 20px;
             }
             
-            .section-title {
-                font-size: 1.6rem;
-            }
-            
             .person-name {
                 font-size: 1.5rem;
             }
@@ -391,6 +482,22 @@
                 font-size: 0.95rem;
                 margin-bottom: 25px;
             }
+            
+            /* Для всплывающего окна на мобильных */
+            .photo-modal-content {
+                max-width: 95%;
+                max-height: 85%;
+            }
+            
+            .photo-modal-img {
+                max-height: 80vh;
+            }
+            
+            .photo-modal-close {
+                top: 10px;
+                right: 20px;
+                font-size: 35px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -404,10 +511,6 @@
             
             h2 {
                 font-size: 1.5rem;
-            }
-            
-            .section-title {
-                font-size: 1.4rem;
             }
             
             .person-name {
@@ -435,6 +538,10 @@
             .photo-caption {
                 font-size: 0.9rem;
             }
+            
+            .photo-modal-img {
+                max-height: 75vh;
+            }
         }
         
         /* Исправление для максимального прижатия текста к краям на мобильных */
@@ -444,7 +551,7 @@
                 padding-right: 15px;
             }
             
-            p, h1, h2, h3, .section-title, .person-name, .quote, .poem {
+            p, h1, h2, h3, .person-name, .quote, .poem {
                 padding-left: 0;
                 padding-right: 0;
                 margin-left: 0;
@@ -462,6 +569,14 @@
     </style>
 </head>
 <body>
+    <!-- Всплывающее окно для фотографий -->
+    <div class="photo-modal" id="photoModal">
+        <span class="photo-modal-close" onclick="closePhotoModal()">&times;</span>
+        <div class="photo-modal-content">
+            <img class="photo-modal-img" id="modalImage" onclick="closePhotoModal()">
+        </div>
+    </div>
+    
     <div class="journal-content">
         <!-- Заголовок документа -->
         <h1>Филиал «Клинский» ГБУЗ МО «МОКПТД»</h1>
@@ -472,11 +587,11 @@
         <!-- Основной текст -->
         <p>&nbsp;</p>
         <p>Специализированная помощь больным туберкулезом в Клинском районе была впервые организована в <span class="year">1924 году</span>, когда в Клину и&nbsp; Высоковске были открыты первые туберкулезные кабинеты. В <span class="year">1925 году</span> в городе Высоковск Клинского уезда был открыт свой противотуберкулезный диспансер со стационарным отделением на 15 койко-мест. Его более 20 лет возглавлял энтузиаст Перльштейн Евсей Ефремович. Самостоятельная противотуберкулезная служба в Высоковске просуществовала до <span class="year">1970 года</span>, после чего она объединилась с Клинским противотуберкулезным диспансером.</p>
-        <p>В <span class="year">1925 году</span> для строительства диспансера в Клину было выбрано место на территории усадьбы Демьяново, где ранее располагался разрушенный садовый павильон. В <span class="year">1926 году</span> на средства местного населения был куплен материал (лес) и возведено двухэтажное деревянное здание.</p>
+        <p>В <span class="year">1925 году</span> для строительства диспансеера в Клину было выбрано место на территории усадьбы Демьяново, где ранее располагался разрушенный садовый павильон. В <span class="year">1926 году</span> на средства местного населения был куплен материал (лес) и возведено двухэтажное деревянное здание.</p>
         
         <!-- image1.png -->
         <div class="image-container">
-            <img src="image1.png" alt="Специализированная помощь больным туберкулезом">
+            <img src="image1.png" alt="Специализированная помощь больным туберкулезом" onclick="openPhotoModal(this)">
             <p class="photo-caption">Деревянное здание диспансера. Предположительно, фото первых лет после постройки, так как территориальные единицы (уезды) в <span class="year">1929 году</span> в СССР были преобразованы в районы, а здание было построено в <span class="year">1926 году</span>.</p>
         </div>
         
@@ -485,10 +600,10 @@
         
         <div class="pair-images">
             <div>
-                <img src="image2.png" alt="Копия земельной записи">
+                <img src="image2.png" alt="Копия земельной записи" onclick="openPhotoModal(this)">
             </div>
             <div>
-                <img src="image3.png" alt="Земельная запись" class="horizontal-photo">
+                <img src="image3.png" alt="Земельная запись" class="horizontal-photo" onclick="openPhotoModal(this)">
             </div>
         </div>
         
@@ -499,7 +614,7 @@
         
         <!-- image4.png -->
         <div class="image-container">
-            <img src="image4.png" alt="Усадьба Демьяново">
+            <img src="image4.png" alt="Усадьба Демьяново" onclick="openPhotoModal(this)">
             <p class="photo-caption">Усадьба Демьяново</p>
         </div>
         
@@ -515,7 +630,7 @@
         
         <!-- image5.png -->
         <div class="image-container">
-            <img src="image5.png" alt="Картина Аполлинария Васнецова">
+            <img src="image5.png" alt="Картина Аполлинария Васнецова" onclick="openPhotoModal(this)">
         </div>
         
         <!-- Этапы развития -->
@@ -529,10 +644,10 @@
         <!-- image6.png и image7.png -->
         <div class="pair-images">
             <div>
-                <img src="image6.png" alt="Этапы развития">
+                <img src="image6.png" alt="Этапы развития" onclick="openPhotoModal(this)">
             </div>
             <div>
-                <img src="image7.png" alt="Историческая справка">
+                <img src="image7.png" alt="Историческая справка" onclick="openPhotoModal(this)">
             </div>
         </div>
         
@@ -553,25 +668,25 @@
         <!-- Главные врачи -->
         <div class="doctors-grid">
             <div class="doctor-item">
-                <img src="image8.png" alt="Перльштейн Евсей Ефремович">
+                <img src="image8.png" alt="Перльштейн Евсей Ефремович" onclick="openPhotoModal(this)">
                 <div class="doctor-caption">Перльштейн Евсей Ефремович</div>
                 <p class="photo-caption">Врач-фтизиатр и общественник, энтузиаст. Руководил Высоковским противотуберкулезным диспансером с <span class="year">1925 г. по 1946 г.</span></p>
             </div>
             
             <div class="doctor-item">
-                <img src="image9.png" alt="Никонов Николай Михайлович">
+                <img src="image9.png" alt="Никонов Николай Михайлович" onclick="openPhotoModal(this)">
                 <div class="doctor-caption">Никонов Николай Михайлович</div>
                 <p class="photo-caption">Первым главным врачом Клинского противотуберкулезного диспансера стал заведующий терапевтическим отделением больницы Никонов Н.М. после переподготовки в МОНИКИ, работал с <span class="year">1924 г. по 1939 г.</span></p>
             </div>
             
             <div class="doctor-item">
-                <img src="image10.png" alt="Цибулевич Элеонора Францевна">
+                <img src="image10.png" alt="Цибулевич Элеонора Францевна" onclick="openPhotoModal(this)">
                 <div class="doctor-caption">Цибулевич Элеонора Францевна</div>
                 <p class="photo-caption">Главный врач с <span class="year">1939 г. по 1955 г.</span></p>
             </div>
             
             <div class="doctor-item">
-                <img src="image11.png" alt="Поташников Михаил Исаакович">
+                <img src="image11.png" alt="Поташников Михаил Исаакович" onclick="openPhotoModal(this)">
                 <div class="doctor-caption">Поташников Михаил Исаакович</div>
                 <p class="photo-caption">Главный врач&nbsp; с <span class="year">1962 г. по 1963 г.</span></p>
             </div>
@@ -579,7 +694,7 @@
         
         <!-- image12.png -->
         <div class="image-container">
-            <img src="image12.png" alt="Главный врач Цибулевич">
+            <img src="image12.png" alt="Главный врач Цибулевич" onclick="openPhotoModal(this)">
             <p class="photo-caption">Главный врач Цибулевич Э.Ф. 4-я слева (в платке)</p>
         </div>
         
@@ -589,7 +704,7 @@
         
         <!-- image13.png -->
         <div class="image-container">
-            <img src="image13.png" alt="Урсов Игорь Григорьевич">
+            <img src="image13.png" alt="Урсов Игорь Григорьевич" onclick="openPhotoModal(this)">
         </div>
         
         <p>Фтизиатрия привлекла Игоря Григорьевича во время учебы&nbsp;на 4-м курсе 1-го Московского&nbsp; медицинского института. По окончанию института заведующий&nbsp; кафедрой фтизиатрии&nbsp; профессор Ф.В. Шебанов (одновременно директор Московского института туберкулеза на ул. Божедомка, ныне ул. Достоевского) пригласил&nbsp; И.Г. Урсова продолжить обучение в субординатуре на кафедре туберкулеза, но по семейным обстоятельствам Игорь Григорьевич отказался и после окончания института посвятил себя фтизиатрии, работая в Зубрилковском тубсанатории Пензенской области.&nbsp; В <span class="year">1955г.</span>, получив должность главного врача&nbsp; Клинского противотуберкулезного диспансера, Урсов И.Г. поступил в аспирантуру на кафедре туберкулеза 1-го МОЛГМИ и сочетал практическую работу с учёбой. В аспирантуре учился &nbsp;под руководством члена корреспондента АМН СССР, профессор Ф.В. Шебанова.&nbsp; В <span class="year">1964-м году</span> успешно защитил&nbsp;кандидатскую диссертацию на тему «Флюорографическое обследование на туберкулёз населения г. Клина и Клинского района Московской области». На ряду с научно -&nbsp;практической деятельностью Игорь Григорьевич активно занимался общественной работой, дважды избирался членом Исполкома Клинского Горсовета, также являлся депутатом Горсовета, председателем комиссии&nbsp;здравоохранения. В <span class="year">1962-м году</span> организовал Московское областное общество фтизиатров и до <span class="year">1968 г.</span> был его председателем.&nbsp; В <span class="year">1964 году</span> был избран председателем ревизионной комиссии и членом Президиума Всесоюзного общества фтизиатров. С <span class="year">1965 г.</span> в течение 20 лет был редактором журнала «Проблемы туберкулеза». Указом Президиума Верховного Совета РСФСР от <span class="year">14.04.1968</span> за большие успехи в деле охраны здоровья народа И.Г. Урсову было присвоено почётное звание «Заслуженный врач РСФСР».&nbsp; С <span class="year">1968 г. по 1980 г.</span> Игорь Григорьевич возглавлял Новосибирский научно-исследовательский институт туберкулёза. С <span class="year">1 августа 1980 г.</span> профессор Урсов И.Г. был переведён на должность ректора Новосибирского государственного медицинского института, возглавлял кафедру фтизиатрии факультета усовершенствования врачей, был выбран&nbsp;членом-корреспондентом АМН СССР.</p>
@@ -602,13 +717,13 @@
         <!-- image14.png, image15.png, image16.png -->
         <div class="triple-images">
             <div>
-                <img src="image14.png" alt="Рентгенологическое оборудование">
+                <img src="image14.png" alt="Рентгенологическое оборудование" onclick="openPhotoModal(this)">
             </div>
             <div>
-                <img src="image15.png" alt="Рентген кабинет">
+                <img src="image15.png" alt="Рентген кабинет" onclick="openPhotoModal(this)">
             </div>
             <div>
-                <img src="image16.png" alt="Рентген аппарат">
+                <img src="image16.png" alt="Рентген аппарат" onclick="openPhotoModal(this)">
             </div>
         </div>
         
@@ -620,46 +735,46 @@
         <!-- image17.png и image18.png -->
         <div class="pair-images">
             <div>
-                <img src="image17.png" alt="Профилактическая работа">
+                <img src="image17.png" alt="Профилактическая работа" onclick="openPhotoModal(this)">
             </div>
             <div>
-                <img src="image18.png" alt="Мероприятия по профилактике">
+                <img src="image18.png" alt="Мероприятия по профилактике" onclick="openPhotoModal(this)">
             </div>
         </div>
         
         <!-- Урсов на обходе -->
         <div class="image-container large-photo">
-            <img src="image19.png" alt="Урсов на обходе">
+            <img src="image19.png" alt="Урсов на обходе" onclick="openPhotoModal(this)">
             <p class="photo-caption">Урсов И.Г. на обходе Клин. "Большого роста, большого сердца, большого ума человек!"- пишут о нем его ученики и последователи.</p>
         </div>
         
         <!-- image20.png -->
         <div class="image-container">
-            <img src="image20.png" alt="Игорь Урсов с коллегами">
+            <img src="image20.png" alt="Игорь Урсов с коллегами" onclick="openPhotoModal(this)">
             <p class="photo-caption">И.Г. Урсов с коллегами: справа на фотографии сидит ветеран труда, отличник здравоохранения, к.м.н. Елизавета Георгиевна Белослюд, старейший член общества фтизиатров, старейший фтизиатр диспансера, энтузиаст красно-крестной работы; слева сидит участковый фтизиатр Валентина Ивановна Зайцева; в центре сидит заместитель главного врача, Олег Гаврилович Леонов; слева от него — участковый фтизиатр Игорь Степанович Шиндер.</p>
         </div>
         
         <!-- image21.png и image22.png -->
         <div class="pair-images">
             <div>
-                <img src="image21.png" alt="Сотрудники 1956">
+                <img src="image21.png" alt="Сотрудники 1956" onclick="openPhotoModal(this)">
                 <p class="photo-caption">Сотрудники, <span class="year">1956 г.</span></p>
             </div>
             <div>
-                <img src="image22.png" alt="Сотрудники и пациенты 1957">
+                <img src="image22.png" alt="Сотрудники и пациенты 1957" onclick="openPhotoModal(this)">
                 <p class="photo-caption">Сотрудники и пациенты, <span class="year">1957 г.</span></p>
             </div>
         </div>
         
         <!-- Здание стационара -->
         <div class="image-container">
-            <img src="image23.png" alt="Здание стационара">
+            <img src="image23.png" alt="Здание стационара" onclick="openPhotoModal(this)">
             <p class="photo-caption">Здание стационара с летней верандой (пристроена в <span class="year">1958 году</span>)</p>
         </div>
         
         <!-- image24.png -->
         <div class="image-container">
-            <img src="image24.png" alt="Стационар с верандой">
+            <img src="image24.png" alt="Стационар с верандой" onclick="openPhotoModal(this)">
         </div>
         
         <!-- Леонов Олег Гаврилович -->
@@ -669,10 +784,10 @@
         <!-- image25.png и image26.png -->
         <div class="pair-images">
             <div>
-                <img src="image25.png" alt="Леонов Олег Гаврилович">
+                <img src="image25.png" alt="Леонов Олег Гаврилович" onclick="openPhotoModal(this)">
             </div>
             <div>
-                <img src="image26.png" alt="Леонов О.Г.">
+                <img src="image26.png" alt="Леонов О.Г." onclick="openPhotoModal(this)">
             </div>
         </div>
         
@@ -680,30 +795,30 @@
         
         <!-- image27.png -->
         <div class="image-container">
-            <img src="image27.png" alt="Без названия">
+            <img src="image27.png" alt="Без названия" onclick="openPhotoModal(this)">
         </div>
         
         <!-- image28.png -->
         <div class="image-container">
-            <img src="image28.png" alt="Агит плакат 1982">
+            <img src="image28.png" alt="Агит плакат 1982" onclick="openPhotoModal(this)">
             <p class="photo-caption">Агитплакат <span class="year">1982г.</span></p>
         </div>
         
         <!-- image29.png и image30.png -->
         <div class="pair-images">
             <div>
-                <img src="image29.png" alt="Беседа с больными">
+                <img src="image29.png" alt="Беседа с больными" onclick="openPhotoModal(this)">
                 <p class="photo-caption">Беседа с больными стационара, <span class="year">1969 г</span></p>
             </div>
             <div>
-                <img src="image30.png" alt="Субботник">
+                <img src="image30.png" alt="Субботник" onclick="openPhotoModal(this)">
                 <p class="photo-caption">Субботник, <span class="year">1969 г</span></p>
             </div>
         </div>
         
         <!-- image31.png -->
         <div class="image-container">
-            <img src="image31.png" alt="Памятка фтизиатра">
+            <img src="image31.png" alt="Памятка фтизиатра" onclick="openPhotoModal(this)">
             <p class="photo-caption">Из памятки фтизиатра по работе с общей лечебной сетью, <span class="year">1969 г.</span></p>
         </div>
         
@@ -713,7 +828,7 @@
         
         <!-- image32.png -->
         <div class="image-container">
-            <img src="image32.png" alt="Лукаш Татьяна Ивановна">
+            <img src="image32.png" alt="Лукаш Татьяна Ивановна" onclick="openPhotoModal(this)">
             <p class="photo-caption">Лукаш Татьяна Ивановна. Начало 90-х, на фоне&nbsp; диспансера.</p>
         </div>
         
@@ -726,37 +841,37 @@
         
         <!-- image33.png -->
         <div class="image-container">
-            <img src="image33.png" alt="Выступление на открытии церемонии присвоения имени Александра Пушкина аэропорту Шереметьево. 2019г.">
+            <img src="image33.png" alt="Выступление на открытии церемонии присвоения имени Александра Пушкина аэропорту Шереметьево. 2019г." onclick="openPhotoModal(this)">
             <p class="photo-caption">Выступление на открытии&nbsp;&nbsp;церемонии присвоения имени Александра Пушкина аэропорту Шереметьево. <span class="year">2019г.</span></p>
         </div>
         
         <!-- Карпичев Борис Андреевич -->
         <div class="person-name">Карпичев Борис Андреевич</div>
         <p>Врач-рентгенолог, заведующий рентгеновским кабинетом, проработал в диспансере более 42 лет (с <span class="year">1980 по 2022 год</span>). В <span class="year">1970 году</span> он закончил Архангельский медицинский институт и сразу же был распределен на должность главного врача Кадниковского областного детского санатория, рассчитанного на 200 койко-мест. Там он совмещал работу врача-рентгенолога. В <span class="year">1972 году</span> он был назначен главным врачом Соковского противотуберкулёзного диспансера Вологодской области.</p>
-        <p>После этого он работал судовым врачом на торговом судне. Они обходили всю Европу и Америку, доставляли лес в Великобританию. Однажды их судно, "Пермь", застряло во льдах Северного Ледовитого океана во время прохождения Северного морского пути без сопровождения ледокола. Позже их отбуксировал ледокол "Ленин". Он также ходили в Техас на судне "Игорь Грабарь". Рассказывая эти&nbsp;истории, Борис Андреевич отмечал хорошее отношение в Европе и Америке к советским гражданам.</p>
+        <p>После этого он работал судовым врачом на торговном судне. Они обходили всю Европу и Америку, доставляли лес в Великобританию. Однажды их судно, "Пермь", застряло во льдах Северного Ледовитого океана во время прохождения Северного морского пути без сопровождения ледокола. Позже их отбуксировал ледокол "Ленин". Он также ходили в Техас на судне "Игорь Грабарь". Рассказывая эти&nbsp;истории, Борис Андреевич отмечал хорошее отношение в Европе и Америке к советским гражданам.</p>
         <p>Жена Бориса Андреевича, Любовь Васильевна, работала главным рентгенологом Клинской ЦРБ более 20 лет, а сейчас ведущий специалист-рентгенолог в Клину их дочь - Анненко Мария Борисовна.&nbsp;</p>
         <p>Борис Андреевич вспоминал, что во время работы на передвижном флюорографе он описывал более 300 исследований в день. Он также проводил осмотры на крупных предприятиях района. Трудно недооценить вклад Бориса Андреевича в недопущение случаев пропусков патологии и качество диагностики, которое в то время в первую очередь зависело от профессионализма рентгенологов.&nbsp; Врачи высоко оценивали его предельно понятные описания рентгеновских снимков и обязательные рисунки, которые формируют практически полное представление о рентгеновской картине для врача-фтизиатра.</p>
         
         <!-- image34.png -->
         <div class="image-container">
-            <img src="image34.png" alt="Карпичев Борис Андреевич">
+            <img src="image34.png" alt="Карпичев Борис Андреевич" onclick="openPhotoModal(this)">
             <p class="photo-caption">Карпичев Борис Андреевич. Заведующий рентгеновским кабинетом, врач-рентгенолог с <span class="year">1980 г.</span></p>
         </div>
         
         <!-- image35.png и image36.png -->
         <div class="pair-images">
             <div>
-                <img src="image35.png" alt="Карпичев фото 2">
+                <img src="image35.png" alt="Карпичев фото 2" onclick="openPhotoModal(this)">
             </div>
             <div>
-                <img src="image36.png" alt="Карпичев фото 3">
+                <img src="image36.png" alt="Карпичев фото 3" onclick="openPhotoModal(this)">
             </div>
         </div>
         
         <!-- image37.png -->
         <div class="image-container">
-            <img src="image37.png" alt="Изображение 37">
-            <p class="photo-caption">Главный врач Лукаш Т.И. с коллегами на территории диспансера:&nbsp;справа от неё-врач&nbsp;фтизиатр&nbsp;Яркова Н.Н.&nbsp; работает с <span class="year">1998 года</span> по настоящее время; участковая&nbsp;м.с. Антонова Г.М стаж работы в диспансере&nbsp;35 лет;&nbsp; процедурная&nbsp;м.с.&nbsp; стационара&nbsp;&nbsp; Лустина В.В.; старшая м.с. стационара Холинова З.В.;&nbsp;&nbsp;процедурная м.с. Львова Н.В. врач-фтизиатр Грачева Н.А.; врач-фтизиатр&nbsp; Пономарева Т.Я. работает по настоящее время, стаж 31 год. Слева снизу старшая м.с. стационара&nbsp; Гуськова Л.Б.; участковая м.с.&nbsp;Белявская Т.М.; повар Софронова Н.М.&nbsp;</p>
+            <img src="image37.png" alt="Изображение 37" onclick="openPhotoModal(this)">
+            <p class="photo-caption">Главный врач Лукаш Т.И. с коллегами на территории диспансера:&nbsp;справа от неё-врач&nbsp;фтизиатр&nbsp;Яркова Н.Н.&nbsp; работает с <span class="year">1998 года</span> по настоящее время; участковая&nbsp;м.с. Антонова Г.М стаж работы в диспансере&nbsp;35 лет;&nbsp; процедурная&nbsp;м.с.&nbsp; стационара&nbsp;&nbsp; Лустина В.В.; старшая м.с. стационара Холинова З.В.;&nbsp;&nbsp;процедурная м.с. Львова Н.В. врач1фтизиатр Грачева Н.А.; врач-фтизиатр&nbsp; Пономарева Т.Я. работает по настоящее время, стаж 31 год. Слева снизу старшая м.с. стационара&nbsp; Гуськова Л.Б.; участковая м.с.&nbsp;Белявская Т.М.; повар Софронова Н.М.&nbsp;</p>
         </div>
         
         <p>С <span class="year">2014 года</span> Клинский противотуберкулёзный диспансер вывели из здания усадьбы и разместили на базе поликлиники №3 Клинской больницы.&nbsp;</p>
@@ -764,10 +879,10 @@
         <!-- image38.png и image39.png -->
         <div class="pair-images">
             <div>
-                <img src="image38.png" alt="Филиал Клинский 2023">
+                <img src="image38.png" alt="Филиал Клинский 2023" onclick="openPhotoModal(this)">
             </div>
             <div>
-                <img src="image39.png" alt="Переезд диспансера">
+                <img src="image39.png" alt="Переезд диспансера" onclick="openPhotoModal(this)">
                 <p class="photo-caption">Филиал «Клинский» ГБУЗ МО «МОКПТД», <span class="year">2023 год</span></p>
             </div>
         </div>
@@ -798,6 +913,47 @@
         <p>© Филиал «Клинский» ГБУЗ МО «МОКПТД», 2024</p>
         <p>Историческая справка. Все права защищены.</p>
     </div>
+
+    <script>
+        // Функция для открытия фотографии в модальном окне
+        function openPhotoModal(imgElement) {
+            const modal = document.getElementById('photoModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            // Устанавливаем источник изображения
+            modalImg.src = imgElement.src;
+            modalImg.alt = imgElement.alt;
+            
+            // Показываем модальное окно
+            modal.classList.add('active');
+            
+            // Блокируем прокрутку фоновой страницы
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Функция для закрытия модального окна
+        function closePhotoModal() {
+            const modal = document.getElementById('photoModal');
+            modal.classList.remove('active');
+            
+            // Восстанавливаем прокрутку страницы
+            document.body.style.overflow = '';
+        }
+        
+        // Закрытие модального окна при нажатии ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closePhotoModal();
+            }
+        });
+        
+        // Закрытие модального окна при клике на затемненный фон
+        document.getElementById('photoModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closePhotoModal();
+            }
+        });
+    </script>
 
 </body>
 </html>
