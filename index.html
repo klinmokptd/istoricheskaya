@@ -327,7 +327,10 @@
             p {
                 font-size: 1.05rem;
                 line-height: 1.7;
-                text-align: left;
+                text-align: justify;
+                padding: 0;
+                width: 100%;
+                max-width: 100%;
             }
             
             .doctors-grid {
@@ -413,6 +416,7 @@
             
             p {
                 font-size: 1rem;
+                padding: 0;
             }
             
             .doctor-item img {
@@ -430,6 +434,29 @@
             
             .photo-caption {
                 font-size: 0.9rem;
+            }
+        }
+        
+        /* Исправление для максимального прижатия текста к краям на мобильных */
+        @media (max-width: 768px) {
+            .journal-content {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            
+            p, h1, h2, h3, .section-title, .person-name, .quote, .poem {
+                padding-left: 0;
+                padding-right: 0;
+                margin-left: 0;
+                margin-right: 0;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .journal-content {
+                padding-left: 10px;
+                padding-right: 10px;
             }
         }
     </style>
@@ -450,9 +477,8 @@
         <!-- image1.png -->
         <div class="image-container">
             <img src="image1.png" alt="Специализированная помощь больным туберкулезом">
+            <p class="photo-caption">Деревянное здание диспансера. Предположительно, фото первых лет после постройки, так как территориальные единицы (уезды) в <span class="year">1929 году</span> в СССР были преобразованы в районы, а здание было построено в <span class="year">1926 году</span>.</p>
         </div>
-        
-        <p>Деревянное здание диспансера. Предположительно, фото первых лет после постройки, так как территориальные единицы (уезды) в <span class="year">1929 году</span> в СССР были преобразованы в районы, а здание было построено в <span class="year">1926 году</span>.</p>
         
         <!-- image2.png и image3.png -->
         <p>Копия «Земельной записи» на право пользования диспансером землей, находящейся в Московской губернии, Клинском уезде и Давыдковской волости, датированная <span class="year">24 февраля 1928 года</span>. Было выделено 8,44 десятины земли (9,2 га) на территории усадьбы Демьяново.</p>
@@ -460,11 +486,9 @@
         <div class="pair-images">
             <div>
                 <img src="image2.png" alt="Копия земельной записи">
-                <p class="photo-caption">Копия земельной записи</p>
             </div>
             <div>
                 <img src="image3.png" alt="Земельная запись" class="horizontal-photo">
-                <p class="photo-caption">Земельная запись</p>
             </div>
         </div>
         
@@ -485,14 +509,13 @@
         <p>На дачах, оборудованных в усадьбе, подолгу жили профессора Московского Университета - философы, химики, зоологи, математики, а также жил и работал Тимирязев.</p>
         <p>В усадьбе бывал великий русский живописец В. М. Васнецов, а его родной брат, художник А. М. Васнецов, посещал усадьбу с <span class="year">1903 по 1917 год</span> и создал цикл пейзажей (более 50 работ), посвященных усадьбе Демьяново Клинского уезда.</p>
         
-        <!-- Картина Васнецова -->
-        <h3>Картина Аполлинария Васнецова</h3>
+        <!-- Царский пруд -->
+        <h3>Царский пруд</h3>
         <p>Картина Аполлинария Васнецова "Пруд. Демьяново близ Клина" была приобретена Третьяковской галереей у семьи художника в <span class="year">1936 году</span>. На ней изображен пруд, который находился на балансе ГБУЗ МО Клинский ПТД до <span class="year">2015 года</span>.</p>
         
         <!-- image5.png -->
         <div class="image-container">
             <img src="image5.png" alt="Картина Аполлинария Васнецова">
-            <p class="photo-caption">Картина Аполлинария Васнецова "Пруд. Демьяново близ Клина"</p>
         </div>
         
         <!-- Этапы развития -->
@@ -507,11 +530,9 @@
         <div class="pair-images">
             <div>
                 <img src="image6.png" alt="Этапы развития">
-                <p class="photo-caption">Этапы развития противотуберкулезной службы</p>
             </div>
             <div>
                 <img src="image7.png" alt="Историческая справка">
-                <p class="photo-caption">Историческая справка</p>
             </div>
         </div>
         
@@ -582,15 +603,12 @@
         <div class="triple-images">
             <div>
                 <img src="image14.png" alt="Рентгенологическое оборудование">
-                <p class="photo-caption">Рентгенологическое оборудование</p>
             </div>
             <div>
                 <img src="image15.png" alt="Рентген кабинет">
-                <p class="photo-caption">Рентген кабинет</p>
             </div>
             <div>
                 <img src="image16.png" alt="Рентген аппарат">
-                <p class="photo-caption">Рентген аппарат</p>
             </div>
         </div>
         
@@ -603,11 +621,9 @@
         <div class="pair-images">
             <div>
                 <img src="image17.png" alt="Профилактическая работа">
-                <p class="photo-caption">Профилактическая работа</p>
             </div>
             <div>
                 <img src="image18.png" alt="Мероприятия по профилактике">
-                <p class="photo-caption">Мероприятия по профилактике</p>
             </div>
         </div>
         
@@ -661,7 +677,6 @@
         </div>
         
         <p class="photo-caption">Леонов Олег Гаврилович. Главный врач Клинского противотуберкулёзного диспансера с <span class="year">1968 г. по 2006 г.</span> (38лет)</p>
-        <p class="photo-caption">Агитплакат <span class="year">1982г.</span></p>
         
         <!-- image27.png -->
         <div class="image-container">
@@ -671,6 +686,7 @@
         <!-- image28.png -->
         <div class="image-container">
             <img src="image28.png" alt="Агит плакат 1982">
+            <p class="photo-caption">Агитплакат <span class="year">1982г.</span></p>
         </div>
         
         <!-- image29.png и image30.png -->
@@ -749,10 +765,10 @@
         <div class="pair-images">
             <div>
                 <img src="image38.png" alt="Филиал Клинский 2023">
-                <p class="photo-caption">Филиал «Клинский» ГБУЗ МО «МОКПТД», <span class="year">2023 год</span></p>
             </div>
             <div>
                 <img src="image39.png" alt="Переезд диспансера">
+                <p class="photo-caption">Филиал «Клинский» ГБУЗ МО «МОКПТД», <span class="year">2023 год</span></p>
             </div>
         </div>
         
