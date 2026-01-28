@@ -33,7 +33,7 @@
         box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         position: relative;
         border-left: 6px solid #8B0000;
-        max-width: 1200px; /* Увеличил максимальную ширину */
+        max-width: 1200px;
         margin: 0 auto;
         width: 100%;
     }
@@ -107,16 +107,6 @@
         opacity: 1;
     }
     
-    /* Стиль для кликабельных фотографий */
-    .clickable-photo {
-        cursor: pointer;
-        transition: transform 0.2s ease;
-    }
-    
-    .clickable-photo:hover {
-        transform: scale(1.02);
-    }
-    
     h1 {
         font-family: 'Playfair Display', serif;
         font-size: 3.2rem;
@@ -178,7 +168,7 @@
         width: 100%;
     }
     
-    /* ОБЫЧНЫЕ ИЗОБРАЖЕНИЯ - УВЕЛИЧЕНЫ */
+    /* ОБЫЧНЫЕ ИЗОБРАЖЕНИЯ */
     .image-container {
         margin: 40px 0;
         text-align: center;
@@ -201,7 +191,7 @@
         transform: scale(1.03);
     }
     
-    /* Особый стиль для горизонтально вытянутых фото (image3) */
+    /* Особый стиль для горизонтально вытянутых фото */
     .horizontal-photo {
         max-width: 90%;
         max-height: 500px;
@@ -209,10 +199,22 @@
         height: auto;
     }
     
-    /* Стиль для больших фотографий */
+    /* Фотография Урсова на обходе - НЕ ПЕРЕКРЫВАЕТ */
     .large-photo {
-        max-width: 90%;
-        max-height: 600px;
+        max-width: 65% !important;
+        max-height: 650px !important;
+        width: auto !important;
+        height: auto !important;
+        display: block !important;
+        margin: 30px auto !important;
+    }
+    
+    /* Фотография Карпичева - немного больше (только десктоп) */
+    @media (min-width: 769px) {
+        .image-container img[src*="image34"] {
+            max-width: 500px !important;
+            max-height: 450px !important;
+        }
     }
     
     /* Подписи под фотографиями */
@@ -241,7 +243,7 @@
         margin-bottom: 10px;
     }
     
-    /* Сетка для врачей - УВЕЛИЧЕНА */
+    /* Сетка для врачей - ВСЕ ОДИНАКОВОГО РАЗМЕРА */
     .doctors-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -256,21 +258,24 @@
     
     .doctor-item img {
         width: 100%;
-        max-width: 350px; /* Увеличил с 250px */
-        height: auto;
+        max-width: 350px; /* Одинаковая ширина для всех */
+        height: 320px; /* Одинаковая высота для всех */
+        object-fit: contain; /* Масштабирование БЕЗ ОБРЕЗКИ */
+        background-color: #f8f9fa;
         border-radius: 10px;
         box-shadow: 0 12px 35px rgba(0,0,0,0.15);
         border: 1px solid #eee;
         margin: 0 auto;
         cursor: pointer;
         transition: transform 0.3s ease;
+        padding: 10px;
     }
     
     .doctor-item img:hover {
         transform: scale(1.05);
     }
     
-    /* ПАРНЫЕ ИЗОБРАЖЕНИЯ - УВЕЛИЧЕНЫ */
+    /* ПАРНЫЕ ИЗОБРАЖЕНИЯ */
     .pair-images {
         display: flex;
         flex-wrap: wrap;
@@ -282,7 +287,7 @@
     }
     
     .pair-images img {
-        max-width: 550px; /* Фиксированная ширина вместо процентов */
+        max-width: 550px;
         width: auto;
         height: auto;
         max-height: 500px;
@@ -297,7 +302,7 @@
         transform: scale(1.05);
     }
     
-    /* ТРИ ИЗОБРАЖЕНИЯ В РЯД - УВЕЛИЧЕНЫ */
+    /* ТРИ ИЗОБРАЖЕНИЯ В РЯД - ОДИНАКОВОГО РАЗМЕРА */
     .triple-images {
         display: flex;
         flex-wrap: wrap;
@@ -309,15 +314,18 @@
     }
     
     .triple-images img {
-        max-width: 380px; /* Фиксированная ширина вместо процентов */
+        max-width: 380px; /* Одинаковая ширина */
+        max-height: 350px; /* Одинаковая высота */
         width: auto;
         height: auto;
-        max-height: 400px;
+        object-fit: contain; /* Масштабирование БЕЗ ОБРЕЗКИ */
+        background-color: #f8f9fa;
         border-radius: 10px;
         box-shadow: 0 12px 35px rgba(0,0,0,0.15);
         border: 1px solid #eee;
         cursor: pointer;
         transition: transform 0.3s ease;
+        padding: 5px;
     }
     
     .triple-images img:hover {
@@ -401,7 +409,7 @@
         background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
     }
     
-    /* Мобильная адаптация - ОСТАВЛЯЕМ БЕЗ ИЗМЕНЕНИЙ */
+    /* Мобильная адаптация */
     @media (max-width: 768px) {
         body {
             padding: 10px 5px;
@@ -443,7 +451,8 @@
         }
         
         .doctor-item img {
-            max-width: 250px;
+            max-width: 280px;
+            height: 250px;
         }
         
         .pair-images {
@@ -465,7 +474,7 @@
         
         .triple-images img {
             max-width: 100%;
-            max-height: 350px;
+            max-height: 300px;
         }
         
         .horizontal-photo {
@@ -474,8 +483,13 @@
         }
         
         .large-photo {
-            max-width: 100%;
-            max-height: 450px;
+            max-width: 95% !important;
+            max-height: 500px !important;
+        }
+        
+        .image-container img[src*="image34"] {
+            max-width: 95% !important;
+            max-height: 400px !important;
         }
         
         .image-container img {
@@ -510,7 +524,6 @@
             font-size: 1.1rem;
         }
         
-        /* Для всплывающего окна на мобильных */
         .photo-modal-content {
             max-width: 95%;
             max-height: 85%;
@@ -550,11 +563,12 @@
         }
         
         .doctor-item img {
-            max-width: 200px;
+            max-width: 250px;
+            height: 220px;
         }
         
         .large-photo {
-            max-height: 350px;
+            max-height: 400px !important;
         }
         
         .pair-images img {
@@ -562,7 +576,11 @@
         }
         
         .triple-images img {
-            max-height: 300px;
+            max-height: 250px;
+        }
+        
+        .image-container img[src*="image34"] {
+            max-height: 350px !important;
         }
         
         .poem {
